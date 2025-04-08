@@ -124,25 +124,6 @@ async def set_color(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup=reply_markup
     )
 
-# async def color_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
-#     query = update.callback_query
-#     await query.answer()
-#     user_id = query.from_user.id
-#     selected_color = query.data.split("_")[1]  # Получаем выбранный цвет
-#
-#     if user_id not in USER_DATA:
-#         await query.edit_message_text("Сначала отправьте файл")
-#         return
-#
-#     if 'settings' not in USER_DATA[user_id]:
-#         USER_DATA[user_id]['settings'] = {}
-#     USER_DATA[user_id]['settings']['color'] = selected_color
-#
-#     await query.edit_message_text(
-#         f"Выбран цвет: {COLOR_OPTIONS[selected_color]}\n"
-#         "Строю график..."
-#     )
-#     await create_and_send_chart(query, context)
 async def color_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     query = update.callback_query
     await query.answer()
